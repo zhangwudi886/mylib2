@@ -1,0 +1,5 @@
+@each $key, $val in $theme-colors {
+  .xdf-icon-#{$key}.xdf-icon {
+    color: $val;
+  }
+}
