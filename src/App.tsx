@@ -8,7 +8,7 @@ library.add(fas);
 function App() {
   const defaultFileLists: UploadFile[] = [
     {
-      name: "实例图片.png",
+      name: "实例图片1111.png",
       size: 17996,
       status: "success",
       uid: "1596964498326upload-file",

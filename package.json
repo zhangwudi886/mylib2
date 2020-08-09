@@ -1,6 +1,6 @@
 {
-  "name": "mylib2",
-  "version": "0.1.0",
+  "name": "shibo-mylib2",
+  "version": "0.1.1",
   "private": false,
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -32,6 +32,8 @@
   "scripts": {
     "start": "react-scripts start",
     "clean": "rimraf ./dist",
+    "lint": "eslint src --ext js,ts,jsx --max-warnings 5",
+    "test:nowatch": "cross-env CI=true react-scripts test",
     "build-css": "node-sass ./src/styles/index.scss ./dist/index.css",
     "build-js": "react-scripts build",
     "build-ts": "tsc -p tsconfig.build.json",
@@ -39,7 +41,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "prepublishOnly": "npm run test:nowatch && npm run lint && npm run build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -55,6 +58,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run test:nowatch && npm run lint"
+    }
   },
   "license": "MIT",
   "devDependencies": {
@@ -73,12 +81,14 @@
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
     "@types/storybook__addon-info": "^5.2.1",
+    "cross-env": "^7.0.2",
+    "husky": "^4.2.5",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-docgen-typescript-loader": "^3.7.2",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
-    "typescript": "~3.7.2",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "typescript": "~3.7.2"
   }
 }

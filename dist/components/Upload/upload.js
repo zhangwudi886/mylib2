@@ -18,6 +18,7 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
 };
 import React, { useRef, useState, useEffect, } from "react";
 import axios from "axios";
+import Button from "../Button/button";
 import UploadList from "./uploadlist";
 import Dragger from "./dragger";
 export var Upload = function (props) {
@@ -129,7 +130,8 @@ export var Upload = function (props) {
             onRemove(_file);
         }
     };
-    return (React.createElement("div", null,
+    return (React.createElement("div", { className: "xdf-upload-component" },
+        React.createElement(Button, { onClick: handleUpload }, "click upload"),
         drag ? (React.createElement(Dragger, { onFile: function (files) {
                 uploadFiles(files);
             } }, children)) : (children),
