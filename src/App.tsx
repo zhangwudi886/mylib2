@@ -14,7 +14,7 @@ function App() {
       uid: "1596964498326upload-file",
     },
     {
-      name: "实例图片1.png",
+      name: "实例图片1222.png",
       size: 17996,
       status: "ready",
       percent: 90,
